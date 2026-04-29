@@ -16,6 +16,36 @@ export const metadata: Metadata = {
   title: "Kotlin Tutorial — Beginner to Advanced",
   description:
     "A hands-on Kotlin tutorial with runnable code examples and detailed comments. Learn Kotlin from scratch through advanced topics like coroutines, DSLs, and delegation.",
+  keywords: [
+    "Kotlin tutorial",
+    "learn Kotlin",
+    "Kotlin for beginners",
+    "Kotlin coroutines",
+    "Kotlin DSL",
+    "Kotlin programming",
+    "Android development",
+    "JVM language",
+    "Kotlin examples",
+    "Kotlin advanced",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  openGraph: {
+    title: "Kotlin Tutorial — Beginner to Advanced",
+    description:
+      "A hands-on Kotlin tutorial with runnable code examples and detailed comments. Learn Kotlin from scratch through advanced topics like coroutines, DSLs, and delegation.",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kotlin Tutorial — Beginner to Advanced",
+    description:
+      "A hands-on Kotlin tutorial with runnable code examples and detailed comments. Learn Kotlin from scratch through advanced topics like coroutines, DSLs, and delegation.",
+  },
 };
 
 export default function RootLayout({
