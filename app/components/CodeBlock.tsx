@@ -1,12 +1,15 @@
 'use client';
 
 import { useState } from 'react';
+import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import darcula from 'react-syntax-highlighter/dist/esm/styles/prism/darcula';
 
 type Props = {
   code: string;
   title?: string;
 };
 
+/** Darcula-style Kotlin highlighting (same family of colors as IntelliJ IDEA). */
 export default function CodeBlock({ code, title }: Props) {
   const [copied, setCopied] = useState(false);
 
@@ -30,6 +33,7 @@ export default function CodeBlock({ code, title }: Props) {
           )}
         </div>
         <button
+          type="button"
           onClick={handleCopy}
           className="text-xs text-zinc-400 hover:text-zinc-100 transition-colors px-2 py-1 rounded hover:bg-zinc-700 cursor-pointer"
         >
@@ -37,11 +41,28 @@ export default function CodeBlock({ code, title }: Props) {
         </button>
       </div>
 
-      {/* Code */}
+      {/* Code — Kotlin grammar + Darcula (IDE-style) token colors */}
       <div className="overflow-x-auto bg-zinc-950">
-        <pre className="p-5 text-sm leading-relaxed font-mono text-zinc-200 min-w-0">
-          <code>{code}</code>
-        </pre>
+        <SyntaxHighlighter
+          language="kotlin"
+          style={darcula}
+          showLineNumbers={false}
+          wrapLongLines
+          customStyle={{
+            margin: 0,
+            padding: '1.25rem',
+            background: '#09090b',
+            fontSize: '0.875rem',
+            lineHeight: 1.65,
+            borderRadius: 0,
+          }}
+          codeTagProps={{
+            className: 'font-mono min-w-0',
+            style: { fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace' },
+          }}
+        >
+          {code}
+        </SyntaxHighlighter>
       </div>
     </div>
   );
