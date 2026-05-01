@@ -1,6 +1,7 @@
 import { ALL_LESSONS } from './lib/lessons';
 import ProgressBar from './components/ProgressBar';
 import LessonGrid from './components/LessonGrid';
+import Link from 'next/link';
 
 const beginner     = ALL_LESSONS.filter((l) => l.level === 'Beginner');
 const intermediate = ALL_LESSONS.filter((l) => l.level === 'Intermediate');
@@ -20,7 +21,7 @@ export default function HomePage() {
 
           <h1 className="text-5xl sm:text-6xl font-bold tracking-tight mb-4">
             Learn{' '}
-            <span className="bg-gradient-to-r from-purple-400 to-purple-200 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-purple-400 to-purple-200 bg-clip-text text-transparent">
               Kotlin
             </span>
           </h1>
@@ -32,6 +33,15 @@ export default function HomePage() {
           <p className="text-zinc-600 text-sm">
             {ALL_LESSONS.length} lessons &nbsp;·&nbsp; Beginner → Intermediate → Advanced
           </p>
+          <div className="mt-6">
+            <Link
+              href="/roadmap"
+              className="inline-flex items-center gap-2 rounded-full border border-purple-600/60 bg-purple-900/30 text-purple-200 text-sm font-medium px-4 py-2 hover:border-purple-400 hover:text-white transition-colors"
+            >
+              View Kotlin App Roadmap
+              <span aria-hidden>→</span>
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -39,6 +49,21 @@ export default function HomePage() {
       <main className="max-w-6xl mx-auto px-6 py-12 space-y-14">
         {/* Progress bar */}
         <ProgressBar />
+
+        <section className="rounded-xl border border-purple-700/40 bg-purple-950/20 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <h2 className="text-base font-semibold text-purple-200">Want to build real Kotlin apps?</h2>
+            <p className="text-sm text-purple-100/80 mt-1">
+              Follow the new beginner-to-job-ready roadmap for Android, Backend, and KMP.
+            </p>
+          </div>
+          <Link
+            href="/roadmap"
+            className="inline-flex items-center justify-center rounded-md border border-purple-500/60 px-4 py-2 text-sm text-purple-200 hover:text-white hover:border-purple-300 transition-colors"
+          >
+            Open roadmap
+          </Link>
+        </section>
 
         {/* Cheatsheet of what's covered */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
